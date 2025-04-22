@@ -3,6 +3,7 @@ package br.com.alura.bytebank.pagamentos;
 import jakarta.persistence.*;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 @Entity
 @Table
@@ -23,6 +24,8 @@ public class Pagamento {
     private Double valor;
 
     private String mesReferencia;
+
+    private LocalDateTime dataHoraImportacao;
 
     public Long getId() {
         return id;
@@ -78,5 +81,13 @@ public class Pagamento {
 
     public void setMesReferencia(String mesReferencia) {
         this.mesReferencia = mesReferencia;
+    }
+
+    public LocalDateTime getDataHoraImportacao() {
+        return dataHoraImportacao;
+    }
+
+    public void setDataHoraImportacao(LocalDateTime dataHoraImportacao) {
+        this.dataHoraImportacao = dataHoraImportacao;
     }
 }
