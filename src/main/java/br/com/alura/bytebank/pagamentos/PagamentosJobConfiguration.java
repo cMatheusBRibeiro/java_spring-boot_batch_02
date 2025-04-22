@@ -74,7 +74,7 @@ public class PagamentosJobConfiguration {
                 .delimited()
                 .delimiter("|")
                 .names("nome", "cpf", "agencia", "conta", "valor", "mesReferencia")
-                .targetType(Pagamento.class)
+                .fieldSetMapper(new PagamentosMapper())
                 .build();
     }
 
@@ -89,14 +89,16 @@ public class PagamentosJobConfiguration {
                             agencia,
                             conta,
                             valor,
-                            mes_referencia
+                            mes_referencia,
+                            data_hora_importacao
                         ) VALUES (
                             :nome,
                             :cpf,
                             :agencia,
                             :conta,
                             :valor,
-                            :mesReferencia
+                            :mesReferencia,
+                            :dataHoraImportacao
                         )
                         """)
                 .itemSqlParameterSourceProvider(
